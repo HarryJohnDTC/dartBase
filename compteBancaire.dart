@@ -47,7 +47,7 @@ void deposer(Map<String, dynamic> compte, double montant) {
   clearConsole();
   if (montant > 0) {
     compte['solde'] += montant;
-    print('Vous avez déposé \${montant}.Ar');
+    print('Vous avez déposé ${montant}.Ariary');
   } else {
     print('Le montant doit être positif.');
   }
@@ -59,9 +59,9 @@ void retirer(Map<String, dynamic> compte, double montant) {
   if (montant > 0) {
     if (montant <= compte['solde']) {
       compte['solde'] -= montant;
-      print('Vous avez retiré \$${montant}.');
+      print('Vous avez retiré ${montant}.Ariary');
     } else {
-      print('Fonds insuffisants. Solde actuel : \$${compte['solde']}.');
+      print('Fonds insuffisants. Solde actuel : ${compte['solde']}.Ariary');
     }
   } else {
     print('Le montant doit être positif.');
@@ -71,7 +71,7 @@ void retirer(Map<String, dynamic> compte, double montant) {
 // Fonction pour afficher le solde
 void afficherSolde(Map<String, dynamic> compte) {
   clearConsole();
-  print('Le solde actuel est : ${compte['solde']}. Ar');
+  print('Le solde actuel est : ${compte['solde']}.Ariary');
 }
 
 void clearConsole() {
