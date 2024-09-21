@@ -1,33 +1,32 @@
 abstract class Employe {
-  String name;
-  int id;
-
-  Employe(this.name, this.id);
+  String get name;
+  int get id;
 
   double calculSalaire();
 }
 
-class EmployePermanent extends Employe {
+class EmployePermanent implements Employe {
+  String name;
+  int id;
   int anciennete;
   double salaire;
+  EmployePermanent(this.name, this.id, this.anciennete, this.salaire);
 
-  EmployePermanent(String name, int id, this.anciennete, this.salaire)
-      : super(name, id);
-
-  //@override
+  @override
   double calculSalaire() {
     return salaire + anciennete * 100000;
   }
 }
 
-class EmployeContract extends Employe {
+class EmployeContract implements Employe {
+  String name;
+  int id;
   int honoraire;
   double heureTravaillee;
 
-  EmployeContract(String name, int id, this.honoraire, this.heureTravaillee)
-      : super(name, id);
+  EmployeContract(this.name, this.id, this.honoraire, this.heureTravaillee);
 
-  //@override
+  @override
   double calculSalaire() {
     return honoraire * heureTravaillee;
   }
@@ -39,6 +38,6 @@ void main() {
 
   print("${Rakoto.name} est un employé permanent" +
       " et son salaire est de ${Rakoto.calculSalaire()} ariary \n" +
-      "${Rabe.name} est un contractuel" + 
+      "${Rabe.name} est un contractuel" +
       " et son salaire est de ${Rabe.calculSalaire()} ariary");
 }
